@@ -21,3 +21,6 @@ section {
 footer {
     text-decoration: underline;
 }
+a:link {
+    color: darkviolet;
+}
