@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM and events</title>
+    <style>
+        body{
+            background-color: lightpink;
+        }
+        #box{
+            background-color: blue;
+            font-size: 100%;
+            padding: 20px;
+        }
+        #box:hover{
+            cursor:pointer;
+        }
+        #movemouse{
+            height: 75vh;
+        }
+    </style>
+</head>
+<body>
+    <button id="box">Click me!</button>
+    <div id="movemouse"></div>
+    <script>
+        
+        const box = document.getElementById('box');
+
+        function clickColor(event){
+            event.target.style.backgroundColor = 'red';
+            box.textContent = "Clicking hurts me 🤕";
+        }
+
+        function hoverColor(event){
+            event.target.style.backgroundColor = 'yellow';
+            box.textContent = "Please please please don't click me 😠";
+        }
+
+        function leaveColor(event) {
+            event.target.style.backgroundColor = 'lightgreen';
+            box.textContent = "Your mercy is appreciated 😌";
+        }
+
+        function doubleColor(event){
+            event.target.style.backgroundColor = 'pink';
+            box.textContent = "I'm in so much pain 🤩";
+        }
+        function moveColor(event){
+            event.target.style.backgroundColor = 'lightblue';
+            box.textContent = "I know where you live 👀";
+        }
+
+        box.addEventListener('mouseover', hoverColor);
+        box.addEventListener('click', clickColor);
+        box.addEventListener('mouseout', leaveColor);
+        box.addEventListener('dblclick', doubleColor);
+        box.addEventListener('mousemoving', moveColor);
+
+    </script>
+</body>
+</html>
