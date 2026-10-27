@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+</head>
+<body>
+    <script>
+        let img = document.createElement('img');
+        let name = document.createElement('name');
+        let email = document.createElement('email');
+        let phone = document.createElement('phone');
+
+        let form = document.createElement('form');
+        let bttn = document.createElement('button');
+
+        form.action = '#';
+        bttn.type = 'button';
+        bttn.textContent = 'Get Profile Generated';
+        form.appendChild(bttn);
+        document.body.appendChild(form);
+        const getUser = async()=>{
+            try{
+                let userAdd = await fetch('https://randomuser.me/api/');
+                userAdd = await userAdd.json();
+                // picture
+                img.src = imgAdd[0].picture;
+
+                //name
+                name.src = userAdd[0].name;
+
+                document.body.appendChild(img);
+                document.body.appendChild('name');
+
+            }catch{(reason)=> console.log(reason);}
+        }
+        getUser();
+    </script>
+</body>
+</html>
